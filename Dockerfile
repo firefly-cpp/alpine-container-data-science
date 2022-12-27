@@ -1,0 +1,41 @@
+# pull the latest Alpine Linux instance
+FROM alpine:3.17
+
+ENV NAME=data-science-basic VERSION=0 ARCH=x86_64
+
+LABEL org.label-schema="$NAME" \
+     name="$FGC/$NAME" \
+     version="$VERSION" \
+     architecture="$ARCH" \
+     run="podman run -it IMAGE" \
+     maintainer="Iztok Fister, Jr. <iztok@iztok-jr-fister.eu>" \
+     url="https://github.com/firefly-cpp/alpine-container-data-science" \
+     summary="A basic container image for performing data science reproducibility studies based on Alpine Linux." \
+     description="A basic container image for performing data science reproducibility studies based on Alpine Linux."
+
+# set a workdir where we will also collect the results of python scripts
+WORKDIR /niapy-pipeline
+
+# INSTALL THE FOLLOWING PYTHON PACKAGES
+#   * niapy: Python microframework for building nature-inspired algorithms | https://github.com/NiaOrg/NiaPy
+#   * niaarm: A minimalistic framework for Numerical Association Rule Mining  | https://github.com/firefly-cpp/NiaARM
+#   * sport-activities-features: A minimalistic toolbox for extracting features from sports activity files written in Python | https://github.com/firefly-cpp/sport-activities-features
+ENV PACKAGES="\
+    py3-niapy \
+    py3-niaarm \
+    py3-sport-activities-features \
+"
+
+# install packages
+RUN apk --no-cache add \
+    python3 \
+    python3-dev \
+    $PACKAGES \
+    && rm -rf /var/cache/apk/*
+
+# copy our Python script to run the optimization using the niapy library
+COPY compare-algorithms.py .
+# start optimization
+RUN python3 compare-algorithms.py
+# open the shell to explore the results in the export folder
+CMD ["/bin/sh"]
