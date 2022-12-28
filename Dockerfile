@@ -26,8 +26,10 @@ ENV PACKAGES="\
     py3-sport-activities-features \
 "
 
-# install packages
-RUN apk --no-cache add \
+# upgrade base packages & install packages
+# NOTE: the base image (alpine:3.17, etc) is only updated when minor releases happen (3.17.1, etc), so it's likely
+# there might be a change to libssl or busybox that wouldn't be pulled when installing packages; thus, we apply 'apk upgrade' step.
+RUN apk upgrade && apk add --no-cache \
     python3 \
     python3-dev \
     $PACKAGES \
