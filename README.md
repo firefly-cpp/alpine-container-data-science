@@ -3,6 +3,18 @@
 ## About
 The repository is devoted to a sample container image built on the top of Alpine Linux that installs some data science dependencies using the "apk" package manager and runs a python script.
 
+## Build && run
+
+### Docker
+
+### Podman
+
+The image can be built using the following command:
+
+```sh
+$ podman build --tag ds .
+```
+
 ## Why Alpine Linux for data science?
 
 - tiny container image,
