@@ -7,12 +7,30 @@ The repository is devoted to a sample container image built on the top of Alpine
 
 ### Docker
 
+The image can be built using the following command:
+
+```sh
+$ docker build --tag ds .
+```
+
+Run the image using 
+
+```sh
+docker run -it --name ds-container -v "$PWD:/var/ds" ds
+```
+
 ### Podman
 
 The image can be built using the following command:
 
 ```sh
 $ podman build --tag ds .
+```
+
+Run the image using 
+
+```sh
+podman run -it --name ds-container -v "$PWD:/var/ds" ds
 ```
 
 ## Why Alpine Linux for data science?
