@@ -42,3 +42,7 @@ podman run -it --name ds-container -v "$PWD:/var/ds" ds
 niapy, deap, pyswarms, jupyter, etc.) NOTE: if you are installing a Python package using "apk" that is not pure CLI (Command Line Interface), you should prepend "py3-" before the name of
 the package,
 - excellent community.
+
+## Disclaimer
+
+This software is provided as-is, and there are no guarantees that it fits your purposes or that it is bug-free. Use it at your own risk!
