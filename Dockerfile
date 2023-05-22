@@ -1,5 +1,5 @@
 # pull the latest Alpine Linux instance
-FROM alpine:3.17
+FROM alpine:3.18
 
 ENV NAME=data-science-basic VERSION=0 ARCH=x86_64
 
