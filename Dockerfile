@@ -23,7 +23,6 @@ WORKDIR /var/ds/
 ENV PACKAGES="\
     py3-niapy \
     py3-niaarm \
-    py3-pymoo \
     py3-sport-activities-features \
 "
 
