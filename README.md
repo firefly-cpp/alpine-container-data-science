@@ -1,11 +1,17 @@
-# A basic container image for performing data science reproducibility studies based on Alpine Linux
+<h1 align="center">
+A basic container image for performing data science reproducibility studies based on Alpine Linux
+</h1>
 
-## About
+<p align="center">
+    <a href="#-build--run">🚀 Build & run</a> •
+    <a href="#-why-alpine-linux-for-data-science">🔍 Why Alpine Linux for data science?</a>
+</p>
+
 The repository is devoted to a sample container image built on the top of Alpine Linux that installs some data science dependencies using the "apk" package manager and runs a python script.
 
-## Build & run
+## 🚀 Build & run
 
-### Docker
+### 🐳 Docker
 
 The image can be built using the following command:
 
@@ -26,7 +32,7 @@ Run the image using Powershell and {$PWD} due to $PWD not being avaliable in com
 docker run -it --name ds-container -v "{$PWD}:/var/ds" ds
 ```
 
-### Podman
+### 🦦 Podman
 
 The image can be built using the following command:
 
@@ -47,7 +53,7 @@ Run the image using Powershell and {$PWD} due to $PWD not being avaliable in com
 podman run -it --name ds-container -v "{$PWD}:/var/ds" ds
 ```
 
-## Why Alpine Linux for data science?
+## 🔍 Why Alpine Linux for data science?
 
 Some interesting facts:
 - Small container image.
